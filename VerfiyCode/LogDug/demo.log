@@ -1,0 +1,251 @@
+2020-11-18 14:12:29 | ERROR | An error has been caught in function '<module>', process 'MainProcess' (40733), thread 'MainThread' (4527255040):
+Traceback (most recent call last):
+
+> File "/Users/dev/Mr/PythonProject/VerfiyCode/Travel.py", line 92, in <module>
+    message = travel.login()
+              │      └ <function Travel.login at 0x7fbf80ce2d40>
+              └ <__main__.Travel object at 0x7fbf80ce6510>
+
+  File "/Users/dev/Mr/PythonProject/VerfiyCode/Travel.py", line 54, in login
+    ip = self.session.get('https://httpbin.org/ip', proxies=json.loads(settings.get('proxy')))
+         │    │       │                                     │    │     └ <dynaconf.base.LazySettings object at 0x7fbf7f6da8d0>
+         │    │       │                                     │    └ <function loads at 0x7fbf7c2d40e0>
+         │    │       │                                     └ <module 'json' from '/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py'>
+         │    │       └ <function Session.get at 0x7fbf7f11bcb0>
+         │    └ <requests.sessions.Session object at 0x7fbf80ce6490>
+         └ <__main__.Travel object at 0x7fbf80ce6510>
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+
+TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+2020-11-18 14:20:22 | ERROR | An error has been caught in function '<module>', process 'MainProcess' (40777), thread 'MainThread' (4626263552):
+Traceback (most recent call last):
+
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/socks.py", line 809, in connect
+    negotiate(self, dest_addr, dest_port)
+    │         │     │          └ 443
+    │         │     └ 'user.qunar.com'
+    │         └ <socks.socksocket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6>
+    └ <function socksocket._negotiate_SOCKS5 at 0x7fd79f81b170>
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/socks.py", line 444, in _negotiate_SOCKS5
+    self, CONNECT, dest_addr)
+    │     │        └ ('user.qunar.com', 443)
+    │     └ b'\x01'
+    └ <socks.socksocket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6>
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/socks.py", line 533, in _SOCKS5_request
+    raise SOCKS5Error("{:#04x}: {}".format(status, error))
+          │                                │       └ 'General SOCKS server failure'
+          │                                └ 1
+          └ <class 'socks.SOCKS5Error'>
+
+socks.SOCKS5Error: 0x01: General SOCKS server failure
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/urllib3/contrib/socks.py", line 105, in _new_conn
+    **extra_kw
+      └ {'socket_options': [(6, 1, 1)]}
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/socks.py", line 209, in create_connection
+    raise err
+          └ GeneralProxyError()
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/socks.py", line 199, in create_connection
+    sock.connect((remote_host, remote_port))
+    │             │            └ 443
+    │             └ 'user.qunar.com'
+    └ None
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/socks.py", line 47, in wrapper
+    return function(*args, **kwargs)
+           │         │       └ {}
+           │         └ (<socks.socksocket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6>, ('user.qunar.com', 443))
+           └ <function socksocket.connect at 0x7fd79f81b4d0>
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/socks.py", line 814, in connect
+    raise GeneralProxyError("Socket error", error)
+          └ <class 'socks.GeneralProxyError'>
+
+socks.GeneralProxyError: Socket error: 0x01: General SOCKS server failure
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 706, in urlopen
+    chunked=chunked,
+            └ False
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 382, in _make_request
+    self._validate_conn(conn)
+    │    │              └ <urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x7fd7a13a3bd0>
+    │    └ <function HTTPSConnectionPool._validate_conn at 0x7fd79f9e0200>
+    └ <urllib3.contrib.socks.SOCKSHTTPSConnectionPool object at 0x7fd7a13a39d0>
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 1010, in _validate_conn
+    conn.connect()
+    │    └ <function HTTPSConnection.connect at 0x7fd79f9afd40>
+    └ <urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x7fd7a13a3bd0>
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/urllib3/connection.py", line 353, in connect
+    conn = self._new_conn()
+           │    └ <function SOCKSConnection._new_conn at 0x7fd79f8087a0>
+           └ <urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x7fd7a13a3bd0>
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/urllib3/contrib/socks.py", line 128, in _new_conn
+    self, "Failed to establish a new connection: %s" % error
+    │                                                  └ SOCKS5Error()
+    └ <urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x7fd7a13a3bd0>
+
+urllib3.exceptions.NewConnectionError: <urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x7fd7a13a3bd0>: Failed to establish a new connection: 0x01: General SOCKS server failure
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+            └ Timeout(connect=None, read=None, total=None)
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 756, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+    │       │                   │                 │   └ <built-in function exc_info>
+    │       │                   │                 └ <module 'sys' (built-in)>
+    │       │                   └ <urllib3.contrib.socks.SOCKSHTTPSConnectionPool object at 0x7fd7a13a39d0>
+    │       └ '/passport/loginx.jsp'
+    └ 'POST'
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/urllib3/util/retry.py", line 573, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+          │             │      │    │        │             └ 'unknown'
+          │             │      │    │        └ <class 'urllib3.exceptions.ResponseError'>
+          │             │      │    └ NewConnectionError('<urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x7fd7a13a3bd0>: Failed to establish a new connecti...
+          │             │      └ '/passport/loginx.jsp'
+          │             └ <urllib3.contrib.socks.SOCKSHTTPSConnectionPool object at 0x7fd7a13a39d0>
+          └ <class 'urllib3.exceptions.MaxRetryError'>
+
+urllib3.exceptions.MaxRetryError: SOCKSHTTPSConnectionPool(host='user.qunar.com', port=443): Max retries exceeded with url: /passport/loginx.jsp (Caused by NewConnectionError('<urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x7fd7a13a3bd0>: Failed to establish a new connection: 0x01: General SOCKS server failure'))
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "/Users/dev/Mr/PythonProject/VerfiyCode/Travel.py", line 92, in <module>
+    message = travel.login()
+              │      └ <function Travel.login at 0x7fd7a12e2d40>
+              └ <__main__.Travel object at 0x7fd7a12e6590>
+
+  File "/Users/dev/Mr/PythonProject/VerfiyCode/Travel.py", line 55, in login
+    rps = self.session.post(url, headers=headers, data=data, proxies=settings.get('tor.proxy')).json()
+          │    │       │    │            │             │             └ <dynaconf.base.LazySettings object at 0x7fd79fdfb8d0>
+          │    │       │    │            │             └ {'loginType': '0', 'ret': 'http://user.qunar.com/userinfo/account.jsp', 'username': '19868922770', 'password': 'aa1234bb', 'r...
+          │    │       │    │            └ {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Sa...
+          │    │       │    └ 'https://user.qunar.com/passport/loginx.jsp'
+          │    │       └ <function Session.post at 0x7fd79f81be60>
+          │    └ <requests.sessions.Session object at 0x7fd7a12e6510>
+          └ <__main__.Travel object at 0x7fd7a12e6590>
+
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/requests/sessions.py", line 590, in post
+    return self.request('POST', url, data=data, json=json, **kwargs)
+           │    │               │         │          │       └ {'headers': {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0...
+           │    │               │         │          └ None
+           │    │               │         └ {'loginType': '0', 'ret': 'http://user.qunar.com/userinfo/account.jsp', 'username': '19868922770', 'password': 'aa1234bb', 'r...
+           │    │               └ 'https://user.qunar.com/passport/loginx.jsp'
+           │    └ <function Session.request at 0x7fd79f81bc20>
+           └ <requests.sessions.Session object at 0x7fd7a12e6510>
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/requests/sessions.py", line 542, in request
+    resp = self.send(prep, **send_kwargs)
+           │    │    │       └ {'timeout': None, 'allow_redirects': True, 'verify': True, 'proxies': OrderedDict([('http', 'socks5://127.0.0.1:9050'), ('htt...
+           │    │    └ <PreparedRequest [POST]>
+           │    └ <function Session.send at 0x7fd79f81c0e0>
+           └ <requests.sessions.Session object at 0x7fd7a12e6510>
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/requests/sessions.py", line 655, in send
+    r = adapter.send(request, **kwargs)
+        │       │    │          └ {'timeout': None, 'verify': True, 'proxies': OrderedDict([('http', 'socks5://127.0.0.1:9050'), ('https', 'socks5://127.0.0.1:...
+        │       │    └ <PreparedRequest [POST]>
+        │       └ <function HTTPAdapter.send at 0x7fd79f81b7a0>
+        └ <requests.adapters.HTTPAdapter object at 0x7fd7a12e68d0>
+  File "/Users/dev/Mr/PythonProject/venv/lib/python3.7/site-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+          │                          └ <PreparedRequest [POST]>
+          └ <class 'requests.exceptions.ConnectionError'>
+
+requests.exceptions.ConnectionError: SOCKSHTTPSConnectionPool(host='user.qunar.com', port=443): Max retries exceeded with url: /passport/loginx.jsp (Caused by NewConnectionError('<urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x7fd7a13a3bd0>: Failed to establish a new connection: 0x01: General SOCKS server failure'))
+2020-11-18 14:41:38 | ERROR | An error has been caught in function '<module>', process 'MainProcess' (40958), thread 'MainThread' (4593090048):
+Traceback (most recent call last):
+
+> File "/Users/dev/Mr/PythonProject/VerfiyCode/Travel.py", line 90, in <module>
+    message = travel.login()
+              │      └ <function Travel.login at 0x7fbbda4dfdd0>
+              └ <__main__.Travel object at 0x7fbbda4e6450>
+
+  File "/Users/dev/Mr/PythonProject/VerfiyCode/Travel.py", line 24, in login
+    self.getImage()
+    │    └ <function Travel.getImage at 0x7fbbda4dfe60>
+    └ <__main__.Travel object at 0x7fbbda4e6450>
+
+  File "/Users/dev/Mr/PythonProject/VerfiyCode/Travel.py", line 66, in getImage
+    reps = self.session.get(Code_url, params=parmas)
+           │    │       │                    └ {'k': '{en7mni(z', 'p': 'ucenter_login', 'c': 'ef7d278eca6d25aa6aec7272d57f0a9a'}
+           │    │       └ <function Session.get at 0x7fbbd5f1ad40>
+           │    └ <requests.sessions.Session object at 0x7fbbda4e63d0>
+           └ <__main__.Travel object at 0x7fbbda4e6450>
+
+NameError: name 'Code_url' is not defined
+2020-11-18 14:45:53 | ERROR | An error has been caught in function '<module>', process 'MainProcess' (40996), thread 'MainThread' (4758044160):
+Traceback (most recent call last):
+
+> File "/Users/dev/Mr/PythonProject/VerfiyCode/Travel.py", line 93, in <module>
+    message = travel.login()
+              │      └ <function Travel.login at 0x7f9200ce1d40>
+              └ <__main__.Travel object at 0x7f9200ce5590>
+
+  File "/Users/dev/Mr/PythonProject/VerfiyCode/Travel.py", line 50, in login
+    'vcode': code
+
+NameError: name 'code' is not defined
+2020-11-18 16:40:03 | ERROR | An error has been caught in function '<module>', process 'MainProcess' (41681), thread 'MainThread' (4400668160):
+Traceback (most recent call last):
+
+> File "/Users/dev/Mr/PythonProject/VerfiyCode/Travel.py", line 97, in <module>
+    message = travel.login()
+              │      └ <function Travel.login at 0x7fac482e1d40>
+              └ <__main__.Travel object at 0x7fac482e6450>
+
+  File "/Users/dev/Mr/PythonProject/VerfiyCode/Travel.py", line 59, in login
+    cookies = re.findall('Cookie(.*?)for', cookies)
+              │  │                         └ <RequestsCookieJar[Cookie(version=0, name='QN271', value='f0ed987a-9dc9-4f17-9e9c-3ea791f1b001', port=None, port_specified=Fa...
+              │  └ <function findall at 0x7fac452b03b0>
+              └ <module 're' from '/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/re.py'>
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/re.py", line 225, in findall
+    return _compile(pattern, flags).findall(string)
+           │        │        │              └ <RequestsCookieJar[Cookie(version=0, name='QN271', value='f0ed987a-9dc9-4f17-9e9c-3ea791f1b001', port=None, port_specified=Fa...
+           │        │        └ 0
+           │        └ 'Cookie(.*?)for'
+           └ <function _compile at 0x7fac452b0710>
+
+TypeError: expected string or bytes-like object
+2020-11-18 16:42:13 | ERROR | An error has been caught in function '<module>', process 'MainProcess' (41698), thread 'MainThread' (4508253696):
+Traceback (most recent call last):
+
+> File "/Users/dev/Mr/PythonProject/VerfiyCode/Travel.py", line 99, in <module>
+    message = travel.login()
+              │      └ <function Travel.login at 0x7fe71e5d1d40>
+              └ <__main__.Travel object at 0x7fe71e5d73d0>
+
+  File "/Users/dev/Mr/PythonProject/VerfiyCode/Travel.py", line 63, in login
+    cookies = re.findall('Cookie(.*?)for', cookies)
+              │  │                         └ <RequestsCookieJar[Cookie(version=0, name='QN271', value='7711b76c-b25d-4643-b349-301cdd9f42c8', port=None, port_specified=Fa...
+              │  └ <function findall at 0x7fe719cb03b0>
+              └ <module 're' from '/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/re.py'>
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/re.py", line 225, in findall
+    return _compile(pattern, flags).findall(string)
+           │        │        │              └ <RequestsCookieJar[Cookie(version=0, name='QN271', value='7711b76c-b25d-4643-b349-301cdd9f42c8', port=None, port_specified=Fa...
+           │        │        └ 0
+           │        └ 'Cookie(.*?)for'
+           └ <function _compile at 0x7fe719cb0710>
+
+TypeError: expected string or bytes-like object
